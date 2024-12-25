@@ -25,11 +25,13 @@ namespace LabelingKZ
         public Form2()
         {
             InitializeComponent();
+            Environment.SetEnvironmentVariable("WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS", "--enable-features=msWebView2BrowserHitTransparent");
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             string filePath = "";
+            KeyPreview = true;
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -516,6 +518,230 @@ namespace LabelingKZ
                     break;
                 } 
                 label5.Text = "Документ готов!";
+            }
+        }
+
+        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBox3.Focused)
+            {
+                if (e.KeyCode == Keys.Enter) 
+                { 
+                    textBox2.Focus();
+                }
+            }
+            else
+            {
+                if (e.KeyCode == Keys.Q)
+                {
+                    button4_Click_1(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.W)
+                {
+                    button11_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.E)
+                {
+                    button5_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.R)
+                {
+                    button7_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.T)
+                {
+                    button8_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Y)
+                {
+                    button9_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.U)
+                {
+                    button10_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.A)
+                {
+                    button12_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.S)
+                {
+                    textBox3.Focus();
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    button2_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    button3_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Space)
+                {
+                    button6_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+
+        private void webView21_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (textBox3.Focused)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    textBox2.Focus();
+                }
+            }
+            else
+            {
+                if (e.KeyCode == Keys.Q)
+                {
+                    button4_Click_1(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.W)
+                {
+                    button11_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.E)
+                {
+                    button5_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.R)
+                {
+                    button7_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.T)
+                {
+                    button8_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Y)
+                {
+                    button9_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.U)
+                {
+                    button10_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.A)
+                {
+                    button12_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.S)
+                {
+                    textBox3.Focus();
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    button2_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    button3_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Space)
+                {
+                    button6_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+
+        private void webView22_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (textBox3.Focused)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    textBox2.Focus();
+                }
+            }
+            else
+            {
+                if (e.KeyCode == Keys.Q)
+                {
+                    button4_Click_1(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.W)
+                {
+                    button11_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.E)
+                {
+                    button5_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.R)
+                {
+                    button7_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.T)
+                {
+                    button8_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Y)
+                {
+                    button9_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.U)
+                {
+                    button10_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.A)
+                {
+                    button12_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.S)
+                {
+                    textBox3.Focus();
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    button2_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    button3_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.Space)
+                {
+                    button6_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
             }
         }
     }
