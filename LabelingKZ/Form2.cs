@@ -331,7 +331,7 @@ namespace LabelingKZ
 
         private void button10_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
+            doc.SetCellValue("E" + (page + 1), "1");
             doc.SetCellValue("F" + (page + 1), "разные названия одного бренда");
             page++;
             if (page < (rc))
