@@ -209,24 +209,12 @@ namespace LabelingKZ
         {
             doc.SetCellValue("E" + (page + 1), "1");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
             }
             else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -246,24 +234,12 @@ namespace LabelingKZ
             doc.SetCellValue("E" + (page + 1), "0");
             doc.SetCellValue("F" + (page + 1), "бренд");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
             }
             else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -283,24 +259,12 @@ namespace LabelingKZ
             doc.SetCellValue("E" + (page + 1), "0");
             doc.SetCellValue("F" + (page + 1), "модель");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
             }
             else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -320,23 +284,12 @@ namespace LabelingKZ
             doc.SetCellValue("E" + (page + 1), "0");
             doc.SetCellValue("F" + (page + 1), "тип товара");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
-            } else
+            }
+            else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -356,24 +309,12 @@ namespace LabelingKZ
             doc.SetCellValue("E" + (page + 1), "0");
             doc.SetCellValue("F" + (page + 1), "бу");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
             }
             else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -393,24 +334,12 @@ namespace LabelingKZ
             doc.SetCellValue("E" + (page + 1), "0");
             doc.SetCellValue("F" + (page + 1), "разные названия одного бренда");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
             }
             else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -429,24 +358,12 @@ namespace LabelingKZ
         {
             doc.SetCellValue("E" + (page + 1), "0");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
             }
             else
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
@@ -489,24 +406,12 @@ namespace LabelingKZ
             doc.SetCellValue("E" + (page + 1), "2");
             doc.SetCellValue("F" + (page + 1), "отсутствует страница");
             page++;
-            if (page < (rc - 1))
+            if (page < (rc))
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
                 textBox1.Text = Convert.ToString(page);
-            }
-            else
+            } 
+            else 
             {
-                label1.Text = Convert.ToString(doc.GetCellValueAsString("A2"));
-                label2.Text = Convert.ToString(doc.GetCellValueAsString("C2"));
-                textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
-                textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
-                webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-                webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
                 textBox1.Text = Convert.ToString("1");
             }
             for (int j = 1; j < rc; j++)
