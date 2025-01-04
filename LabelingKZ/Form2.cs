@@ -572,9 +572,14 @@ namespace LabelingKZ
                     button5_Click(sender, e);
                     e.SuppressKeyPress = true;
                 }
-                else if (e.KeyCode == Keys.R)
+                else if (e.KeyCode == Keys.R && e.Modifiers != Keys.Control)
                 {
                     button7_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.R && e.Modifiers == Keys.Control)
+                {
+                    button13_Click(sender, e);
                     e.SuppressKeyPress = true;
                 }
                 else if (e.KeyCode == Keys.T)
@@ -647,9 +652,14 @@ namespace LabelingKZ
                     button5_Click(sender, e);
                     e.SuppressKeyPress = true;
                 }
-                else if (e.KeyCode == Keys.R)
+                else if (e.KeyCode == Keys.R && e.Modifiers != Keys.Control)
                 {
                     button7_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.R && e.Modifiers == Keys.Control)
+                {
+                    button13_Click(sender, e);
                     e.SuppressKeyPress = true;
                 }
                 else if (e.KeyCode == Keys.T)
@@ -722,9 +732,14 @@ namespace LabelingKZ
                     button5_Click(sender, e);
                     e.SuppressKeyPress = true;
                 }
-                else if (e.KeyCode == Keys.R)
+                else if (e.KeyCode == Keys.R && e.Modifiers != Keys.Control)
                 {
                     button7_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                }
+                else if (e.KeyCode == Keys.R && e.Modifiers == Keys.Control)
+                {
+                    button13_Click(sender, e);
                     e.SuppressKeyPress = true;
                 }
                 else if (e.KeyCode == Keys.T)
