@@ -19,11 +19,6 @@ namespace LabelingKZ
             this.Text = "Labeling KZ";
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -31,11 +26,6 @@ namespace LabelingKZ
             {
                 form2.ShowDialog();
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void label2_Click(object sender, EventArgs e)

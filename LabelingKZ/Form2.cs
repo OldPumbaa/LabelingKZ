@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -36,7 +37,6 @@ namespace LabelingKZ
         private void Form2_Load(object sender, EventArgs e)
         {
             fdone = false;
-            //string filePath = "";
             KeyPreview = true;
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -91,35 +91,10 @@ namespace LabelingKZ
             }
         }
 
-        private void webView21_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form2_Resize(object sender, EventArgs e)
         {
             webView21.Width = this.Width / 2;
             webView22.Width = this.Width / 2;
-        }
-
-        private void Form2_ResizeEnd(object sender, EventArgs e)
-        {
-
-        }
-
-        private void webView22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -519,16 +494,6 @@ namespace LabelingKZ
             doc = new SLDocument(filePath);
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void label2_Resize(object sender, EventArgs e)
         {
             LabelControl labelControl = sender as LabelControl;
@@ -829,6 +794,52 @@ namespace LabelingKZ
         {
             webView21.ZoomFactor += 0.05;
             webView22.ZoomFactor += 0.05;
+        }
+
+        private async void webView22_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
+        {
+            string pageContent = await webView22.ExecuteScriptAsync("document.body.innerText");
+            string anscell = textBox2.Text;
+            if ((pageContent.Contains("Такой страницы не существует")) && (anscell != "2"))
+            {
+                textBox2.Text = "2";
+                System.Media.SystemSounds.Asterisk.Play();
+                AutoClosingMessageBox.Show("Товар отсутствует, пропускаем", "404", 1000);
+                page++;
+                if (page < (rc))
+                {
+                    textBox1.Text = Convert.ToString(page);
+                }
+                else
+                {
+                    textBox1.Text = Convert.ToString("1");
+                }
+                for (int j = 1; j < rc; j++)
+                {
+                    string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
+                    if (job == "0" || job == "1" || job == "2")
+                    {
+                        label5.Text = "Документ готов!";
+                        tcomp = true;
+                        continue;
+                    }
+                    else
+                    {
+                        label5.Text = "Следующая строка: " + j;
+                        tcomp = false;
+                        break;
+                    }
+                }
+                if (!fdone && tcomp)
+                {
+                    fdone = true;
+                    System.Media.SystemSounds.Asterisk.Play();
+                    MessageBox.Show("Документ готов!");
+                }
+                doc.Save();
+                doc = new SLDocument(filePath);
+
+            }
         }
     }
 }

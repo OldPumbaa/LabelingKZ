@@ -84,6 +84,11 @@
             this.webView22.Size = new System.Drawing.Size(460, 376);
             this.webView22.TabIndex = 1;
             this.webView22.ZoomFactor = 0.7D;
+            //this.webView22.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView22_CoreWebView2InitializationCompleted);
+            this.webView22.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webView22_NavigationCompleted);
+            //this.webView22.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.webView22_SourceChanged);
+            //this.webView22.ContentLoading += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2ContentLoadingEventArgs>(this.webView22_ContentLoading);
+            //this.webView22.Click += new System.EventHandler(this.webView22_Click_1);
             this.webView22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.webView22_KeyDown);
             // 
             // webView21
@@ -107,7 +112,7 @@
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            //this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -299,7 +304,7 @@
             this.label5.Size = new System.Drawing.Size(114, 16);
             this.label5.TabIndex = 19;
             this.label5.Text = "Документ готов!";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            //this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // button12
             // 
