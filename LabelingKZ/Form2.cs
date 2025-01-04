@@ -186,6 +186,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -213,6 +215,8 @@ namespace LabelingKZ
                     textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (j + 1)));
                     webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (j + 1))));
                     webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (j + 1))));
+                    tcomp = false;
+                    label5.Text = "Следующая строка: " + j;
                     break;
                 }
             }
@@ -553,6 +557,8 @@ namespace LabelingKZ
                 if (e.KeyCode == Keys.Enter) 
                 { 
                     textBox2.Focus();
+                    doc.Save();
+                    doc = new SLDocument(filePath);
                 }
             }
             else
@@ -633,6 +639,8 @@ namespace LabelingKZ
                 if (e.KeyCode == Keys.Enter)
                 {
                     textBox2.Focus();
+                    doc.Save();
+                    doc = new SLDocument(filePath);
                 }
             }
             else
@@ -713,6 +721,8 @@ namespace LabelingKZ
                 if (e.KeyCode == Keys.Enter)
                 {
                     textBox2.Focus();
+                    doc.Save();
+                    doc = new SLDocument(filePath);
                 }
             }
             else
