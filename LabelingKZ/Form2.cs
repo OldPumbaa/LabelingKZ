@@ -20,6 +20,10 @@ namespace LabelingKZ
     {
         int page = 1;
         int rc;
+        int k = 2;
+        bool fdone;
+        bool tcomp;
+        string job;
         SLDocument doc;
         public System.Drawing.Size OldSize { get; set; }
         public Form2()
@@ -30,6 +34,7 @@ namespace LabelingKZ
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            fdone = false;
             string filePath = "";
             KeyPreview = true;
             OpenFileDialog ofd = new OpenFileDialog();
@@ -53,14 +58,25 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
             }
-            
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -171,12 +187,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -190,7 +218,13 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     textBox1.Text = Convert.ToString(j);
                     label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (j + 1)));
@@ -201,7 +235,12 @@ namespace LabelingKZ
                     webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (j + 1))));
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -220,12 +259,23 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                } else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -245,12 +295,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -270,12 +332,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -295,12 +369,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -320,19 +406,31 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "1");
-            doc.SetCellValue("F" + (page + 1), "разные названия одного бренда");
+            doc.SetCellValue("E" + (page + 1), "0");
+            doc.SetCellValue("F" + (page + 1), "количество");
             page++;
             if (page < (rc))
             {
@@ -345,12 +443,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -369,12 +479,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
                 }
-                label5.Text = "Документ готов!";
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 
@@ -417,12 +539,24 @@ namespace LabelingKZ
             for (int j = 1; j < rc; j++)
             {
                 string job = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
-                if (job != "0" && job != "1" && job != "2")
+                if (job == "0" || job == "1" || job == "2")
+                {
+                    label5.Text = "Документ готов!";
+                    tcomp = true;
+                    continue;
+                }
+                else
                 {
                     label5.Text = "Следующая строка: " + j;
+                    tcomp = false;
                     break;
-                } 
-                label5.Text = "Документ готов!";
+                }
+            }
+            if (!fdone && tcomp)
+            {
+                fdone = true;
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Документ готов!");
             }
         }
 

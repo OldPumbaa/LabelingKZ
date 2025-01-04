@@ -252,7 +252,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(118, 36);
             this.button10.TabIndex = 15;
-            this.button10.Text = "РНОБ (U)";
+            this.button10.Text = "Кол-во (U)";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
