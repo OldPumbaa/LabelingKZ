@@ -24,6 +24,7 @@ namespace LabelingKZ
         bool fdone;
         bool tcomp;
         string job;
+        string filePath = "";
         SLDocument doc;
         public System.Drawing.Size OldSize { get; set; }
         public Form2()
@@ -35,7 +36,7 @@ namespace LabelingKZ
         private void Form2_Load(object sender, EventArgs e)
         {
             fdone = false;
-            string filePath = "";
+            //string filePath = "";
             KeyPreview = true;
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -51,6 +52,8 @@ namespace LabelingKZ
             label2.Text = doc.GetCellValueAsString("C2");
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
+            webView21.ZoomFactor = Properties.Settings.Default.Zoom1;
+            webView22.ZoomFactor = Properties.Settings.Default.Zoom2;
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
             webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
             textBox1.Text = Convert.ToString(page);
@@ -81,9 +84,11 @@ namespace LabelingKZ
 
         private void button1_Click(object sender, EventArgs e)
         {
-            doc.Save();
-            
-            System.Windows.Forms.Application.Exit();
+            this.Hide();
+            using (Form1 form1 = new Form1())
+            {
+                form1.ShowDialog();
+            }
         }
 
         private void webView21_Click(object sender, EventArgs e)
@@ -277,6 +282,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -314,6 +321,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -351,6 +360,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -388,6 +399,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -425,6 +438,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -462,6 +477,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -498,6 +515,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -558,6 +577,8 @@ namespace LabelingKZ
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Документ готов!");
             }
+            doc.Save();
+            doc = new SLDocument(filePath);
         }
 
         private void Form2_KeyDown(object sender, KeyEventArgs e)
@@ -782,6 +803,32 @@ namespace LabelingKZ
                     e.SuppressKeyPress = true;
                 }
             }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Zoom1 = webView21.ZoomFactor;
+            Properties.Settings.Default.Zoom2 = webView22.ZoomFactor;
+            Properties.Settings.Default.Save();
+            Application.Exit();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            webView21.Reload();
+            webView22.Reload();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            webView21.ZoomFactor -= 0.05;
+            webView22.ZoomFactor -= 0.05;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            webView21.ZoomFactor += 0.05;
+            webView22.ZoomFactor += 0.05;
         }
     }
 }

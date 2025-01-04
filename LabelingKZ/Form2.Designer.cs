@@ -52,6 +52,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -66,7 +69,7 @@
             this.groupBox1.Controls.Add(this.webView21);
             this.groupBox1.Location = new System.Drawing.Point(1, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(939, 315);
+            this.groupBox1.Size = new System.Drawing.Size(1206, 397);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -76,9 +79,9 @@
             this.webView22.CreationProperties = null;
             this.webView22.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webView22.Dock = System.Windows.Forms.DockStyle.Right;
-            this.webView22.Location = new System.Drawing.Point(476, 18);
+            this.webView22.Location = new System.Drawing.Point(743, 18);
             this.webView22.Name = "webView22";
-            this.webView22.Size = new System.Drawing.Size(460, 294);
+            this.webView22.Size = new System.Drawing.Size(460, 376);
             this.webView22.TabIndex = 1;
             this.webView22.ZoomFactor = 0.7D;
             this.webView22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.webView22_KeyDown);
@@ -91,7 +94,7 @@
             this.webView21.Dock = System.Windows.Forms.DockStyle.Left;
             this.webView21.Location = new System.Drawing.Point(3, 18);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(460, 294);
+            this.webView21.Size = new System.Drawing.Size(460, 376);
             this.webView21.TabIndex = 0;
             this.webView21.ZoomFactor = 0.7D;
             this.webView21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.webView21_KeyDown);
@@ -111,7 +114,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label2.Location = new System.Drawing.Point(934, 42);
+            this.label2.Location = new System.Drawing.Point(1201, 42);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(44, 16);
@@ -123,11 +126,12 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(913, 1);
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1167, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 29);
+            this.button1.Size = new System.Drawing.Size(40, 36);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Х";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -154,7 +158,7 @@
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Location = new System.Drawing.Point(92, 409);
+            this.textBox2.Location = new System.Drawing.Point(92, 491);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(25, 22);
             this.textBox2.TabIndex = 6;
@@ -164,9 +168,9 @@
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(245, 409);
+            this.textBox3.Location = new System.Drawing.Point(245, 491);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(685, 22);
+            this.textBox3.Size = new System.Drawing.Size(959, 22);
             this.textBox3.TabIndex = 7;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -183,7 +187,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(4, 367);
+            this.button4.Location = new System.Drawing.Point(4, 449);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(118, 36);
             this.button4.TabIndex = 9;
@@ -194,7 +198,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(250, 367);
+            this.button5.Location = new System.Drawing.Point(250, 449);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(118, 36);
             this.button5.TabIndex = 10;
@@ -215,7 +219,7 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.Location = new System.Drawing.Point(374, 367);
+            this.button7.Location = new System.Drawing.Point(374, 449);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(118, 36);
             this.button7.TabIndex = 12;
@@ -226,7 +230,7 @@
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.Location = new System.Drawing.Point(498, 367);
+            this.button8.Location = new System.Drawing.Point(498, 449);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(118, 36);
             this.button8.TabIndex = 13;
@@ -237,7 +241,7 @@
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button9.Location = new System.Drawing.Point(622, 367);
+            this.button9.Location = new System.Drawing.Point(622, 449);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(118, 36);
             this.button9.TabIndex = 14;
@@ -248,7 +252,7 @@
             // button10
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button10.Location = new System.Drawing.Point(746, 367);
+            this.button10.Location = new System.Drawing.Point(746, 449);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(118, 36);
             this.button10.TabIndex = 15;
@@ -259,7 +263,7 @@
             // button11
             // 
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button11.Location = new System.Drawing.Point(126, 367);
+            this.button11.Location = new System.Drawing.Point(126, 449);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(118, 36);
             this.button11.TabIndex = 16;
@@ -271,7 +275,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 412);
+            this.label3.Location = new System.Drawing.Point(4, 494);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 17;
@@ -281,7 +285,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(123, 412);
+            this.label4.Location = new System.Drawing.Point(123, 494);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 16);
             this.label4.TabIndex = 18;
@@ -300,7 +304,7 @@
             // button12
             // 
             this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button12.Location = new System.Drawing.Point(870, 367);
+            this.button12.Location = new System.Drawing.Point(870, 449);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(118, 36);
             this.button12.TabIndex = 20;
@@ -308,12 +312,47 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
+            // button13
+            // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.Location = new System.Drawing.Point(1161, 449);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(43, 36);
+            this.button13.TabIndex = 21;
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
+            this.button14.Location = new System.Drawing.Point(1112, 449);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(43, 36);
+            this.button14.TabIndex = 22;
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button15
+            // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
+            this.button15.Location = new System.Drawing.Point(1063, 449);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(43, 36);
+            this.button15.TabIndex = 23;
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 437);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1209, 519);
+            this.Controls.Add(this.button15);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -339,6 +378,7 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.Resize += new System.EventHandler(this.Form2_Resize);
@@ -375,5 +415,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
     }
 }
