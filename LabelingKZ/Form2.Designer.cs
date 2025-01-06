@@ -84,7 +84,11 @@
             this.webView22.Size = new System.Drawing.Size(460, 376);
             this.webView22.TabIndex = 1;
             this.webView22.ZoomFactor = 0.7D;
+            //this.webView22.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView22_CoreWebView2InitializationCompleted);
             this.webView22.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webView22_NavigationCompleted);
+            //this.webView22.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.webView22_SourceChanged);
+            //this.webView22.ContentLoading += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2ContentLoadingEventArgs>(this.webView22_ContentLoading);
+            //this.webView22.Click += new System.EventHandler(this.webView22_Click_1);
             this.webView22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.webView22_KeyDown);
             // 
             // webView21
@@ -108,6 +112,7 @@
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            //this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -189,7 +194,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button4.Location = new System.Drawing.Point(4, 449);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 36);
+            this.button4.Size = new System.Drawing.Size(118, 36);
             this.button4.TabIndex = 9;
             this.button4.Text = "Копия (Q)";
             this.button4.UseVisualStyleBackColor = true;
@@ -198,9 +203,9 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(272, 449);
+            this.button5.Location = new System.Drawing.Point(250, 449);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(128, 36);
+            this.button5.Size = new System.Drawing.Size(118, 36);
             this.button5.TabIndex = 10;
             this.button5.Text = "Бренд (E)";
             this.button5.UseVisualStyleBackColor = true;
@@ -219,9 +224,9 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.Location = new System.Drawing.Point(406, 449);
+            this.button7.Location = new System.Drawing.Point(374, 449);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(128, 36);
+            this.button7.Size = new System.Drawing.Size(118, 36);
             this.button7.TabIndex = 12;
             this.button7.Text = "Модель (R)";
             this.button7.UseVisualStyleBackColor = true;
@@ -230,9 +235,9 @@
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.Location = new System.Drawing.Point(540, 449);
+            this.button8.Location = new System.Drawing.Point(498, 449);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(128, 36);
+            this.button8.Size = new System.Drawing.Size(118, 36);
             this.button8.TabIndex = 13;
             this.button8.Text = "Тип товара (T)";
             this.button8.UseVisualStyleBackColor = true;
@@ -241,9 +246,9 @@
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button9.Location = new System.Drawing.Point(674, 449);
+            this.button9.Location = new System.Drawing.Point(622, 449);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(128, 36);
+            this.button9.Size = new System.Drawing.Size(118, 36);
             this.button9.TabIndex = 14;
             this.button9.Text = "Б/у (Y)";
             this.button9.UseVisualStyleBackColor = true;
@@ -252,9 +257,9 @@
             // button10
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button10.Location = new System.Drawing.Point(808, 449);
+            this.button10.Location = new System.Drawing.Point(746, 449);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(128, 36);
+            this.button10.Size = new System.Drawing.Size(118, 36);
             this.button10.TabIndex = 15;
             this.button10.Text = "Кол-во (U)";
             this.button10.UseVisualStyleBackColor = true;
@@ -263,9 +268,9 @@
             // button11
             // 
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button11.Location = new System.Drawing.Point(138, 449);
+            this.button11.Location = new System.Drawing.Point(126, 449);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(128, 36);
+            this.button11.Size = new System.Drawing.Size(118, 36);
             this.button11.TabIndex = 16;
             this.button11.Text = "Не копия (W)";
             this.button11.UseVisualStyleBackColor = true;
@@ -299,13 +304,14 @@
             this.label5.Size = new System.Drawing.Size(114, 16);
             this.label5.TabIndex = 19;
             this.label5.Text = "Документ готов!";
+            //this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // button12
             // 
             this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button12.Location = new System.Drawing.Point(942, 449);
+            this.button12.Location = new System.Drawing.Point(870, 449);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(128, 36);
+            this.button12.Size = new System.Drawing.Size(118, 36);
             this.button12.TabIndex = 20;
             this.button12.Text = "404 (A)";
             this.button12.UseVisualStyleBackColor = true;
