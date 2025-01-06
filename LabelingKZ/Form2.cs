@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Office2010.CustomUI;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
@@ -21,10 +22,8 @@ namespace LabelingKZ
     {
         int page = 1;
         int rc;
-        int k = 2;
         bool fdone;
         bool tcomp;
-        string job;
         string filePath = "";
         SLDocument doc;
         public System.Drawing.Size OldSize { get; set; }
@@ -43,11 +42,21 @@ namespace LabelingKZ
             {
                 filePath = ofd.FileName;
                 doc = new SLDocument(filePath);
+            } else {
+                this.Hide();
+                using (Form1 form1 = new Form1())
+                {
+                    form1.ShowDialog();
+                }
             }
             string str = System.IO.File.ReadAllText(@filePath);
             doc = new SLDocument(filePath);
             var stats = doc.GetWorksheetStatistics(); //sheet::SLDocument
             rc = stats.NumberOfRows;
+            for (int i = 2; i<rc; i++)
+            {
+                
+            }
             label1.Text = doc.GetCellValueAsString("A2");
             label2.Text = doc.GetCellValueAsString("C2");
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
@@ -55,7 +64,7 @@ namespace LabelingKZ
             webView21.ZoomFactor = Properties.Settings.Default.Zoom1;
             webView22.ZoomFactor = Properties.Settings.Default.Zoom2;
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B2")));
-            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")));
+            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D2")) + "?oos_search=false");
             textBox1.Text = Convert.ToString(page);
             this.Text = "Labeling KZ Workspace: " + ofd.SafeFileName;
             for (int j = 1; j < rc; j++)
@@ -113,7 +122,7 @@ namespace LabelingKZ
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
+            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))) + "?oos_search=false");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -132,11 +141,15 @@ namespace LabelingKZ
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
+            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))) + "?oos_search=false");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "1";
+            }
             page = Convert.ToInt32(textBox1.Text);
             if (page < 1)
             {
@@ -153,7 +166,7 @@ namespace LabelingKZ
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
-            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))));
+            webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (page + 1))) + "?oos_search=false");
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -214,7 +227,7 @@ namespace LabelingKZ
                     textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
                     textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (j + 1)));
                     webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (j + 1))));
-                    webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (j + 1))));
+                    webView22.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("D" + (j + 1))) + "?oos_search=false");
                     tcomp = false;
                     label5.Text = "Следующая строка: " + j;
                     break;
@@ -865,6 +878,44 @@ namespace LabelingKZ
                 doc = new SLDocument(filePath);
 
             }
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.SelectAll();
+        }
+
+        private void webView21_ZoomFactorChanged(object sender, EventArgs e)
+        {
+
+            Properties.Settings.Default.Zoom1 = webView21.ZoomFactor;
+            Properties.Settings.Default.Save();
+        }
+
+        private void webView22_ZoomFactorChanged(object sender, EventArgs e)
+        {
+
+            Properties.Settings.Default.Zoom2 = webView22.ZoomFactor;
+            Properties.Settings.Default.Save();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (tableLayoutPanel1.Visible)
+            {
+                tableLayoutPanel1.Visible = false;
+                tableLayoutPanel1.Enabled = false;
+            } else
+            {
+                tableLayoutPanel1.Visible = true;
+                tableLayoutPanel1.Enabled = true;
+            }
+        }
+
+        private void tableLayoutPanel1_MouseLeave(object sender, EventArgs e)
+        {
+            tableLayoutPanel1.Visible = false;
+            tableLayoutPanel1.Enabled = false;
         }
     }
 }

@@ -55,6 +55,8 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button16 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -85,6 +87,7 @@
             this.webView22.TabIndex = 1;
             this.webView22.ZoomFactor = 0.7D;
             this.webView22.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webView22_NavigationCompleted);
+            this.webView22.ZoomFactorChanged += new System.EventHandler<System.EventArgs>(this.webView22_ZoomFactorChanged);
             this.webView22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.webView22_KeyDown);
             // 
             // webView21
@@ -98,6 +101,7 @@
             this.webView21.Size = new System.Drawing.Size(460, 376);
             this.webView21.TabIndex = 0;
             this.webView21.ZoomFactor = 0.7D;
+            this.webView21.ZoomFactorChanged += new System.EventHandler<System.EventArgs>(this.webView21_ZoomFactorChanged);
             this.webView21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.webView21_KeyDown);
             // 
             // label1
@@ -137,7 +141,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1, 2);
+            this.button2.Location = new System.Drawing.Point(44, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(27, 28);
             this.button2.TabIndex = 4;
@@ -147,11 +151,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(34, 5);
+            this.textBox1.Location = new System.Drawing.Point(73, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(32, 22);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "999";
+            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -176,7 +181,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(72, 2);
+            this.button3.Location = new System.Drawing.Point(108, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(27, 28);
             this.button3.TabIndex = 8;
@@ -208,7 +213,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(105, 2);
+            this.button6.Location = new System.Drawing.Point(137, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(42, 28);
             this.button6.TabIndex = 11;
@@ -294,7 +299,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(153, 8);
+            this.label5.Location = new System.Drawing.Point(185, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 16);
             this.label5.TabIndex = 19;
@@ -344,11 +349,41 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.Enabled = false;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 36);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(110, 413);
+            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Visible = false;
+            this.tableLayoutPanel1.MouseLeave += new System.EventHandler(this.tableLayoutPanel1_MouseLeave);
+            // 
+            // button16
+            // 
+            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
+            this.button16.Location = new System.Drawing.Point(4, 2);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(38, 36);
+            this.button16.TabIndex = 24;
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 519);
+            this.Controls.Add(this.button16);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
@@ -417,5 +452,7 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button button16;
     }
 }
