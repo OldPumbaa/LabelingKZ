@@ -53,9 +53,13 @@ namespace LabelingKZ
             doc = new SLDocument(filePath);
             var stats = doc.GetWorksheetStatistics(); //sheet::SLDocument
             rc = stats.NumberOfRows;
-            for (int i = 2; i<rc; i++)
+            for (int i = 2; i <= rc; i++)
             {
-                
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = i - 1;
+                row.Cells[1].Value = Convert.ToString(doc.GetCellValueAsString("E" + i));
+                row.Cells[2].Value = Convert.ToString(doc.GetCellValueAsString("F" + i));
+                dataGridView1.Rows.Add(row);
             }
             label1.Text = doc.GetCellValueAsString("A2");
             label2.Text = doc.GetCellValueAsString("C2");
@@ -901,21 +905,36 @@ namespace LabelingKZ
 
         private void button16_Click(object sender, EventArgs e)
         {
-            if (tableLayoutPanel1.Visible)
+            if (dataGridView1.Visible)
             {
-                tableLayoutPanel1.Visible = false;
-                tableLayoutPanel1.Enabled = false;
+                dataGridView1.Visible = false;
+                dataGridView1.Enabled = false;
             } else
             {
-                tableLayoutPanel1.Visible = true;
-                tableLayoutPanel1.Enabled = true;
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+                for (int i = 2; i <= rc; i++)
+                {
+                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                    row.Cells[0].Value = i - 1;
+                    row.Cells[1].Value = Convert.ToString(doc.GetCellValueAsString("E" + i));
+                    row.Cells[2].Value = Convert.ToString(doc.GetCellValueAsString("F" + i));
+                    dataGridView1.Rows.Add(row);
+                }
+                dataGridView1.Visible = true;
+                dataGridView1.Enabled = true;
             }
         }
 
         private void tableLayoutPanel1_MouseLeave(object sender, EventArgs e)
         {
-            tableLayoutPanel1.Visible = false;
-            tableLayoutPanel1.Enabled = false;
+            dataGridView1.Visible = false;
+            dataGridView1.Enabled = false;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox1.Text = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
         }
     }
 }

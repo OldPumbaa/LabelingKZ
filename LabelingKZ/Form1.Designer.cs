@@ -77,6 +77,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Labeling KZ";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
