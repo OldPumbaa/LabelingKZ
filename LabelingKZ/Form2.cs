@@ -5,27 +5,34 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Office2010.CustomUI;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using SpreadsheetLight;
+using System.IO;
 
 namespace LabelingKZ
 {
     public partial class Form2 : Form
     {
+        string[] knopname = new string[8];
+        string[] knopcorr = new string[8];
+        string[] knopcomm = new string[8];
         int page = 1;
         int rc;
         bool fdone;
         bool tcomp;
         string filePath = "";
         SLDocument doc;
+        XmlDocument xmldoc;
         public System.Drawing.Size OldSize { get; set; }
         public Form2()
         {
@@ -42,6 +49,9 @@ namespace LabelingKZ
             {
                 filePath = ofd.FileName;
                 doc = new SLDocument(filePath);
+                xmldoc = new XmlDocument();
+                string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                xmldoc.Load(currentDirectory + "/profiles/default.xml");
             } else {
                 this.Hide();
                 using (Form1 form1 = new Form1())
@@ -49,6 +59,10 @@ namespace LabelingKZ
                     form1.ShowDialog();
                 }
             }
+
+            XmlNode node = xmldoc.DocumentElement.SelectSingleNode("/buttons/button1/name");
+            MessageBox.Show(node.InnerText);
+
             string str = System.IO.File.ReadAllText(@filePath);
             doc = new SLDocument(filePath);
             var stats = doc.GetWorksheetStatistics(); //sheet::SLDocument
