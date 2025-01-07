@@ -60,6 +60,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -165,6 +167,7 @@
             // 
             // label1
             // 
+            this.label1.AutoEllipsis = true;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(2, 42);
             this.label1.Name = "label1";
@@ -175,6 +178,7 @@
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoEllipsis = true;
             this.label2.AutoSize = true;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.label2.Location = new System.Drawing.Point(1296, 42);
@@ -418,11 +422,36 @@
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1023, 9);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(188, 24);
+            this.comboBox1.TabIndex = 25;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox1_MouseClick);
+            // 
+            // button17
+            // 
+            this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
+            this.button17.Location = new System.Drawing.Point(1217, 2);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(40, 36);
+            this.button17.TabIndex = 26;
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 608);
+            this.Controls.Add(this.button17);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
@@ -499,5 +528,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C1;
         private System.Windows.Forms.DataGridViewTextBoxColumn C2;
         private System.Windows.Forms.DataGridViewTextBoxColumn C3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button17;
     }
 }

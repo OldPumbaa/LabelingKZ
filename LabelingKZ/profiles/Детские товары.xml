@@ -21,14 +21,14 @@
     <comm>модель</comm>
   </button4>
   <button5>
-    <name>Тип товара</name>
+    <name>Состав</name>
     <corr>0</corr>
-    <comm>тип товара</comm>
+    <comm>состав</comm>
   </button5>
   <button6>
-    <name>Б/у</name>
+    <name>Фото</name>
     <corr>0</corr>
-    <comm>бу</comm>
+    <comm>фото</comm>
   </button6>
   <button7>
     <name>Кол-во</name>
@@ -36,8 +36,8 @@
     <comm>количество</comm>
   </button7>
   <button8>
-    <name>Цвет</name>
+    <name>Тип товара</name>
     <corr>0</corr>
-    <comm>цвет</comm>
+    <comm>тип товара</comm>
   </button8>
 </buttons>

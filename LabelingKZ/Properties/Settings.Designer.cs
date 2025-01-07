@@ -46,5 +46,29 @@ namespace LabelingKZ.Properties {
                 this["Zoom2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("default")]
+        public string LastProfile {
+            get {
+                return ((string)(this["LastProfile"]));
+            }
+            set {
+                this["LastProfile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string newprofname {
+            get {
+                return ((string)(this["newprofname"]));
+            }
+            set {
+                this["newprofname"] = value;
+            }
+        }
     }
 }

@@ -56,11 +56,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 101);
+            this.label2.Location = new System.Drawing.Point(279, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(31, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "v1.2.5";
+            this.label2.Text = "v1.3";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form1

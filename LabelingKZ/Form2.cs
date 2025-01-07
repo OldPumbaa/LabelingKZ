@@ -18,6 +18,7 @@ using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using SpreadsheetLight;
 using System.IO;
+using LabelingKZ.Properties;
 
 namespace LabelingKZ
 {
@@ -28,6 +29,7 @@ namespace LabelingKZ
         string[] knopcomm = new string[8];
         int page = 1;
         int rc;
+        const int maxlength = 130;
         bool fdone;
         bool tcomp;
         string filePath = "";
@@ -49,9 +51,6 @@ namespace LabelingKZ
             {
                 filePath = ofd.FileName;
                 doc = new SLDocument(filePath);
-                xmldoc = new XmlDocument();
-                string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-                xmldoc.Load(currentDirectory + "/profiles/default.xml");
             } else {
                 this.Hide();
                 using (Form1 form1 = new Form1())
@@ -60,8 +59,48 @@ namespace LabelingKZ
                 }
             }
 
-            XmlNode node = xmldoc.DocumentElement.SelectSingleNode("/buttons/button1/name");
-            MessageBox.Show(node.InnerText);
+            //INITIALIZE PROFILE
+            xmldoc = new XmlDocument();
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            string[] profiles = Directory.GetFiles(currentDirectory + "/profiles/");
+            List<string> profilenames = new List<string>();
+
+            foreach (string profile in profiles)
+            {
+                comboBox1.Items.Add(Path.GetFileNameWithoutExtension(profile));
+                profilenames.Add(Path.GetFileNameWithoutExtension(profile));
+            }
+
+            if (profilenames.Contains(Properties.Settings.Default.LastProfile))
+            {
+                comboBox1.SelectedIndex = comboBox1.FindStringExact(Properties.Settings.Default.LastProfile);
+                xmldoc.Load(currentDirectory + "/profiles/" + Properties.Settings.Default.LastProfile + ".xml");
+            } else
+            {
+                comboBox1.SelectedIndex = 0;
+                xmldoc.Load(currentDirectory + "/profiles/" + comboBox1.Items[comboBox1.SelectedIndex] + ".xml");
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                XmlNode node1 = xmldoc.DocumentElement.SelectSingleNode("/buttons/button" + (i + 1) + "/name");
+                knopname[i] = node1.InnerText;
+                XmlNode node2 = xmldoc.DocumentElement.SelectSingleNode("/buttons/button" + (i + 1) + "/corr");
+                knopcorr[i] = node2.InnerText;
+                XmlNode node3 = xmldoc.DocumentElement.SelectSingleNode("/buttons/button" + (i + 1) + "/comm");
+                knopcomm[i] = node3.InnerText;
+            }
+            button4.Text = knopname[0] + " (Q)";
+            button11.Text = knopname[1] + " (W)";
+            button5.Text = knopname[2] + " (E)";
+            button7.Text = knopname[3] + " (R)";
+            button8.Text = knopname[4] + " (T)";
+            button9.Text = knopname[5] + " (Y)";
+            button10.Text = knopname[6] + " (U)";
+            button12.Text = knopname[7] + " (A)";
+
+            //PROFILES END
 
             string str = System.IO.File.ReadAllText(@filePath);
             doc = new SLDocument(filePath);
@@ -76,7 +115,15 @@ namespace LabelingKZ
                 dataGridView1.Rows.Add(row);
             }
             label1.Text = doc.GetCellValueAsString("A2");
+            if (label1.Text.Length > maxlength)
+            {
+                label1.Text = label1.Text.Substring(0, maxlength);
+            }
             label2.Text = doc.GetCellValueAsString("C2");
+            if (label2.Text.Length > maxlength)
+            {
+                label2.Text = label2.Text.Substring(0, maxlength);
+            }
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E2"));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F2"));
             webView21.ZoomFactor = Properties.Settings.Default.Zoom1;
@@ -111,6 +158,8 @@ namespace LabelingKZ
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.LastProfile = comboBox1.Text;
+            Properties.Settings.Default.Save();
             this.Hide();
             using (Form1 form1 = new Form1())
             {
@@ -136,7 +185,15 @@ namespace LabelingKZ
             }
             textBox1.Text = Convert.ToString(page);
             label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
+            if (label1.Text.Length > maxlength)
+            {
+                label1.Text = label1.Text.Substring(0, maxlength);
+            }
             label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
+            if (label2.Text.Length > maxlength)
+            {
+                label2.Text = label2.Text.Substring(0, maxlength);
+            }
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
@@ -155,7 +212,15 @@ namespace LabelingKZ
             }
             textBox1.Text = Convert.ToString(page);
             label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
+            if (label1.Text.Length > maxlength)
+            {
+                label1.Text = label1.Text.Substring(0, maxlength);
+            }
             label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
+            if (label2.Text.Length > maxlength)
+            {
+                label2.Text = label2.Text.Substring(0, maxlength);
+            }
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
@@ -180,7 +245,15 @@ namespace LabelingKZ
                 textBox1.Text = Convert.ToString(page);
             }
             label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (page + 1)));
+            if (label1.Text.Length > maxlength)
+            {
+                label1.Text = label1.Text.Substring(0, maxlength);
+            }
             label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (page + 1)));
+            if (label2.Text.Length > maxlength)
+            {
+                label2.Text = label2.Text.Substring(0, maxlength);
+            }
             textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (page + 1)));
             textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (page + 1)));
             webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (page + 1))));
@@ -240,8 +313,15 @@ namespace LabelingKZ
                 else
                 {
                     textBox1.Text = Convert.ToString(j);
-                    label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (j + 1)));
+                    label1.Text = Convert.ToString(doc.GetCellValueAsString("A" + (j + 1))); if (label1.Text.Length > maxlength)
+                    {
+                        label1.Text = label1.Text.Substring(0, maxlength);
+                    }
                     label2.Text = Convert.ToString(doc.GetCellValueAsString("C" + (j + 1)));
+                    if (label2.Text.Length > maxlength)
+                    {
+                        label2.Text = label2.Text.Substring(0, maxlength);
+                    }
                     textBox2.Text = Convert.ToString(doc.GetCellValueAsString("E" + (j + 1)));
                     textBox3.Text = Convert.ToString(doc.GetCellValueAsString("F" + (j + 1)));
                     webView21.Source = new System.Uri(Convert.ToString(doc.GetCellValueAsString("B" + (j + 1))));
@@ -261,7 +341,11 @@ namespace LabelingKZ
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "1");
+            doc.SetCellValue("E" + (page + 1), knopcorr[0]);
+            if (knopcomm[0] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[0]);
+            }
             page++;
             if (page < (rc))
             {
@@ -298,8 +382,11 @@ namespace LabelingKZ
 
         private void button5_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
-            doc.SetCellValue("F" + (page + 1), "бренд");
+            doc.SetCellValue("E" + (page + 1), knopcorr[2]);
+            if (knopcomm[2] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[2]);
+            }
             page++;
             if (page < (rc))
             {
@@ -337,8 +424,11 @@ namespace LabelingKZ
 
         private void button7_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
-            doc.SetCellValue("F" + (page + 1), "модель");
+            doc.SetCellValue("E" + (page + 1), knopcorr[3]);
+            if (knopcomm[3] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[3]);
+            }
             page++;
             if (page < (rc))
             {
@@ -376,8 +466,11 @@ namespace LabelingKZ
 
         private void button8_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
-            doc.SetCellValue("F" + (page + 1), "тип товара");
+            doc.SetCellValue("E" + (page + 1), knopcorr[4]);
+            if (knopcomm[4] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[4]);
+            }
             page++;
             if (page < (rc))
             {
@@ -415,8 +508,11 @@ namespace LabelingKZ
 
         private void button9_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
-            doc.SetCellValue("F" + (page + 1), "бу");
+            doc.SetCellValue("E" + (page + 1), knopcorr[5]);
+            if (knopcomm[5] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[5]);
+            }
             page++;
             if (page < (rc))
             {
@@ -454,8 +550,11 @@ namespace LabelingKZ
 
         private void button10_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
-            doc.SetCellValue("F" + (page + 1), "количество");
+            doc.SetCellValue("E" + (page + 1), knopcorr[6]);
+            if (knopcomm[6] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[6]);
+            }
             page++;
             if (page < (rc))
             {
@@ -493,7 +592,11 @@ namespace LabelingKZ
 
         private void button11_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "0");
+            doc.SetCellValue("E" + (page + 1), knopcorr[1]);
+            if (knopcomm[1] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[1]);
+            }
             page++;
             if (page < (rc))
             {
@@ -544,8 +647,11 @@ namespace LabelingKZ
 
         private void button12_Click(object sender, EventArgs e)
         {
-            doc.SetCellValue("E" + (page + 1), "2");
-            doc.SetCellValue("F" + (page + 1), "отсутствует страница");
+            doc.SetCellValue("E" + (page + 1), knopcorr[7]);
+            if (knopcomm[7] != "")
+            {
+                doc.SetCellValue("F" + (page + 1), knopcomm[7]);
+            }
             page++;
             if (page < (rc))
             {
@@ -830,6 +936,7 @@ namespace LabelingKZ
         {
             Properties.Settings.Default.Zoom1 = webView21.ZoomFactor;
             Properties.Settings.Default.Zoom2 = webView22.ZoomFactor;
+            Properties.Settings.Default.LastProfile = comboBox1.Text;
             Properties.Settings.Default.Save();
             Application.Exit();
         }
@@ -894,7 +1001,9 @@ namespace LabelingKZ
                 }
                 doc.Save();
                 doc = new SLDocument(filePath);
-
+            } else if (pageContent.Contains("Этот товар закончился") || pageContent.Contains("Товар не доставляется в ваш регион"))
+            {
+                await webView22.ExecuteScriptAsync("window.scroll(0, 500)");
             }
         }
 
@@ -949,6 +1058,59 @@ namespace LabelingKZ
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBox1.Text = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            xmldoc = new XmlDocument();
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            xmldoc.Load(currentDirectory + "/profiles/" + comboBox1.Items[comboBox1.SelectedIndex] + ".xml");
+            for (int i = 0; i < 8; i++)
+            {
+                XmlNode node1 = xmldoc.DocumentElement.SelectSingleNode("/buttons/button" + (i + 1) + "/name");
+                knopname[i] = node1.InnerText;
+                XmlNode node2 = xmldoc.DocumentElement.SelectSingleNode("/buttons/button" + (i + 1) + "/corr");
+                knopcorr[i] = node2.InnerText;
+                XmlNode node3 = xmldoc.DocumentElement.SelectSingleNode("/buttons/button" + (i + 1) + "/comm");
+                knopcomm[i] = node3.InnerText;
+            }
+            button4.Text = knopname[0] + " (Q)";
+            button11.Text = knopname[1] + " (W)";
+            button5.Text = knopname[2] + " (E)";
+            button7.Text = knopname[3] + " (R)";
+            button8.Text = knopname[4] + " (T)";
+            button9.Text = knopname[5] + " (Y)";
+            button10.Text = knopname[6] + " (U)";
+            button12.Text = knopname[7] + " (A)";
+        }
+
+        private void comboBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int current = comboBox1.SelectedIndex;
+            comboBox1.Items.Clear();
+            xmldoc = new XmlDocument();
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            string[] profiles = Directory.GetFiles(currentDirectory + "/profiles/");
+            List<string> profilenames = new List<string>();
+
+            foreach (string profile in profiles)
+            {
+                comboBox1.Items.Add(Path.GetFileNameWithoutExtension(profile));
+            }
+            comboBox1.SelectedIndex = current;
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LastProfile = comboBox1.Text;
+            Properties.Settings.Default.Save();
+            using (Form3 form3 = new Form3())
+            {
+                form3.ShowDialog();
+            }
+            comboBox1.SelectedIndex = comboBox1.FindStringExact(Properties.Settings.Default.LastProfile);
         }
     }
 }
