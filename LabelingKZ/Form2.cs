@@ -158,6 +158,8 @@ namespace LabelingKZ
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Zoom1 = webView21.ZoomFactor;
+            Properties.Settings.Default.Zoom2 = webView22.ZoomFactor;
             Properties.Settings.Default.LastProfile = comboBox1.Text;
             Properties.Settings.Default.Save();
             this.Hide();
@@ -1110,6 +1112,18 @@ namespace LabelingKZ
             {
                 form3.ShowDialog();
             }
+            comboBox1.Items.Clear();
+            xmldoc = new XmlDocument();
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            string[] profiles = Directory.GetFiles(currentDirectory + "/profiles/");
+            List<string> profilenames = new List<string>();
+
+            foreach (string profile in profiles)
+            {
+                comboBox1.Items.Add(Path.GetFileNameWithoutExtension(profile));
+            }
+            comboBox1.SelectedIndex = 0;
             comboBox1.SelectedIndex = comboBox1.FindStringExact(Properties.Settings.Default.LastProfile);
         }
     }

@@ -102,7 +102,7 @@ namespace LabelingKZ
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             xmldoc = new XmlDocument();
-            string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
             xmldoc.Load(currentDirectory + "/profiles/" + comboBox1.Text + ".xml");
             for (int i = 0; i < 8; i++)
@@ -255,6 +255,15 @@ namespace LabelingKZ
                                 new XElement("corr", ""),
                                 new XElement("comm", ""))));
                 xmlnew.Save(currentDirectory + "/profiles/" + Properties.Settings.Default.newprofname + ".xml");
+                comboBox1.Items.Clear();
+                string[] profiles = Directory.GetFiles(currentDirectory + "/profiles/");
+                List<string> profilenames = new List<string>();
+                foreach (string profile in profiles)
+                {
+                    comboBox1.Items.Add(Path.GetFileNameWithoutExtension(profile));
+                }
+                comboBox1.SelectedIndex = 0;
+                comboBox1.SelectedIndex = comboBox1.FindStringExact(Properties.Settings.Default.newprofname);
                 Properties.Settings.Default.newprofname = "";
                 Properties.Settings.Default.Save();
             }
